@@ -3,6 +3,5 @@
 附：第三方模块安装教程：
 首先打开cmd，输入：
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-pip install pygame
-pip install psutil
+pip install -r requirements.txt
 等待安装完成即可

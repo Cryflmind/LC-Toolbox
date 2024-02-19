@@ -1,4 +1,4 @@
-﻿import os
+import os
 from tkinter.messagebox import * #用于弹出错误提示框
 
 
@@ -21,9 +21,7 @@ def exitset(temp,pattern,filename=None): #补写退出代码
 
 
 def Init(): #初始化
-    if os.path.exists(r".\clean.bat"): #如果文件已经存在，则跳过此文件的初始化
-        pass
-    else:
+    if not os.path.exists(r".\clean.bat"): #如果文件已经存在，则跳过此文件的初始化
         #初始化垃圾清理程序
         temp = open("clean.bat","w")
         temp.close()
@@ -51,9 +49,7 @@ def Init(): #初始化
         temp.write(r'del /f /s /q "%userprofile%\recent\*.*" ' + "\n")
         temp = exitset(temp,1)
         temp.close()
-    if os.path.exists(r".\taskkiller.bat"):  # 如果文件已经存在，则跳过此文件的初始化
-        pass
-    else:
+    if not os.path.exists(r".\taskkiller.bat"):  # 如果文件已经存在，则跳过此文件的初始化
         #初始化进程关闭程序(注意此文件需要随时修改执行,固需要先进行一次复制)
         temp = open("taskkiller.bat", "w")
         temp.close()
@@ -64,9 +60,7 @@ def Init(): #初始化
         temp.write(r"color 0a" + "\n")
         temp.write(r"title Taskkiller" + "\n")
         temp.close()
-    if os.path.exists(r".\renamer.bat"):  # 如果文件已经存在，则跳过此文件的初始化
-        pass
-    else:
+    if not os.path.exists(r".\renamer.bat"):  # 如果文件已经存在，则跳过此文件的初始化
         #初始化后缀批量修改程序(注意此文件需要随时修改执行,固需要先进行一次复制)
         temp = open("renamer.bat", "w")
         temp.close()
@@ -104,7 +98,7 @@ def taskkiller(processName): #进程结束代码生成器
 def renamer(pattern,fileDir,rend=""): #重命名代码生成器
     if fileDir == "": #未选择路径就点击了执行
         showerror("错误", "喵！你还没有选择或填写目录路径呢！xwx")
-        return;
+        return
     attribset("renamer.bat",2) #解除占用
     os.system("copy renamer.bat renamerTEMP.bat") #复制一份副本
     attribset("renamer.bat", 1) #重新隐藏

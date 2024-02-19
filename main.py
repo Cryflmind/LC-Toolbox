@@ -1,4 +1,4 @@
-﻿#作者：Cryflmind
+#作者：Cryflmind
 #QQ:3244118528
 import Lcmd
 import pygame
@@ -17,7 +17,10 @@ import psutil
 
 #初始化变量和控件
 pygame.mixer.init()
-SEARCHENGINE = ["360","百度","必应","学科网"]
+SEARCHENGINE = {"360":"https://www.so.com/s?ie=utf-8&q=",\
+    "百度":"https://www.baidu.com/s?ie=utf-8&wd=",\
+    "必应":"https://cn.bing.com/search?q=",\
+    "学科网":"https://search.zxxk.com/books/?kw="}
 print("")
 config={}
 music_list = []
@@ -88,8 +91,6 @@ def thread_music(index,is_worked):
                 lock.acquire()
                 music_is_playing = change_the_music()
                 lock.release()
-            else:
-                pass
         else:
             if music_is_playing:
                 lock.acquire()
@@ -311,14 +312,7 @@ def FrenameWindow(): #文件格式化窗体
 def Fsearcher(): #搜索功能（GET请求）
     pattern = list1.get()
     key = entry1.get()
-    if (pattern == "360"):
-        webbrowser.open("https://www.so.com/s?ie=utf-8&q="+key)
-    elif (pattern == "百度"):
-        webbrowser.open("https://www.baidu.com/s?ie=utf-8&wd="+key)
-    elif (pattern == "必应"):
-        webbrowser.open("https://cn.bing.com/search?q="+key)
-    elif (pattern == "学科网"):
-        webbrowser.open("https://search.zxxk.com/books/?kw="+key)
+    webbrowser.open(SEARCHENGINE[pattern]+key)
 
 
 
