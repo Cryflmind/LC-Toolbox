@@ -1,8 +1,9 @@
-直接执行源码时，请注意入口文件为main.py，并且确保您的电脑上有Python编辑器，并安装了pygame和psutil模块
+鐩存帴鎵ц婧愮爜鏃讹紝璇锋敞鎰忓叆鍙ｆ枃浠朵负main.py锛屽苟涓旂‘淇濇偍鐨勭數鑴戜笂鏈塒ython缂栬緫鍣紝骞跺畨瑁呬簡pygame鍜宲sutil妯″潡
 
-附：第三方模块安装教程：
-首先打开cmd，输入：
+闄勶細绗笁鏂规ā鍧楀畨瑁呮暀绋嬶細
+棣栧厛鎵撳紑cmd锛岃緭鍏ワ細
+```
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-pip install pygame
-pip install psutil
-等待安装完成即可
+pip install -r requirements.txt
+```
+绛夊緟瀹夎瀹屾垚鍗冲彲
